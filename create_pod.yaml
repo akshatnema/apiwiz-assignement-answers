@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-custom-pod
+spec:
+  containers:
+    - name: my-container
+      image: my-image:tag
+  restartPolicy: Always
