@@ -2,7 +2,8 @@
 
 This repo contains answers of the all questions asked in apiwiz DevOps Internship assignment. Here are there solutions:
 
-- ### Linux:
+- ### Linux
+
   - **Provide steps to create a directory inside a directory where the parent directory does not exist:**
 
     Using -p option of mkdir command you can create a directory inside the another directory even if the parent directory doesn’t exist.
@@ -51,6 +52,7 @@ This repo contains answers of the all questions asked in apiwiz DevOps Internshi
     Bash file for the above script is [exit_process.bash](./exit_process.bash).
 
 - ### Docker
+
   - **What is docker and why do we need it?**
 
     Docker is an application container platform. Containers allow one to create a standard unit containing an application and its dependencies and have a uniform environment where it can run despite being deployed from a different underlying system.
@@ -85,12 +87,13 @@ This repo contains answers of the all questions asked in apiwiz DevOps Internshi
     ```
 
 - ### Kubernetes
+
   - **What are different types of services?**
-    
+
     Different kinds of services in kubernetes address different networking needs. Internal communication is made easy among the pods because they can utilize the default ClusterIP service. NodePort exposes specific service on particular port across all nodes making them accessible externally. LoadBalancer allows seamless creation of an externally facing load balancer that distributes even traffic and is essential for public applications. ExternalName is an alias for external services; while Headless services provide DNS entries for direct pod communication. The load balancers with external traffic policy allow you to manage the flow of the traffic. Istio Linkerd provides advanced networking capabilities while managing of service external access route is based on rule set with use of Ingress.
 
   - **What is a pod?**
-    
+
     A pod is, in essence, the smallest possible unit that can be controlled, in Kubernetes. A set of connected containers with shared networking namespace and shared storage volumes.
 
   - **Create a pod with the above created custom image when a pod dies k8s should automatically restart**
