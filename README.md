@@ -101,9 +101,9 @@ This repo contains answers of the all questions asked in apiwiz DevOps Internshi
     I created a [create_pod.yaml](./create_pod.yaml) YAML file to create Pod.
 
   - **How to access the custom application with a specific port?**
-    
+
     To access a custom application with a specific port in Kubernetes, you'll need to create a Service that exposes the application. Here are the steps I followed:
-    
+
     - Create a Deployment to manage the pods running your custom application. I implemented this in [create_deployment.yaml](./create_deployment.yml) file.
 
       Apply this YAML using ```kubectl apply -f create_deployment.yaml```
@@ -113,3 +113,13 @@ This repo contains answers of the all questions asked in apiwiz DevOps Internshi
       Apply this YAML using ```kubectl apply -f create_service.yaml```.
 
     We can now access our custom application using the node's IP address and the chosen NodePort.
+
+- ### CI/CD
+
+  - **Set up a pipeline (Github actions/Gitlab runner/ Jenkins or any open source tool) to build, test, create a docker image, publish and deploy to k8s. Use the application present in this public repo <https://github.com/apiwizlabs/wizdesk>.**
+
+    Github workflow file has been made inside `.github/workflows` and respected Dockerfiles are written in [Wizdesk](./wizdesk/) folder.
+
+  - **Automate to spin up a network and virtual machines. Install the Nginx package and start the service(any cloud)**
+
+    I wrote the [main.tf](./nginx-automation/main.tf) file to spin up the virtual machine in Microsoft Azure.
