@@ -99,3 +99,17 @@ This repo contains answers of the all questions asked in apiwiz DevOps Internshi
   - **Create a pod with the above created custom image when a pod dies k8s should automatically restart**
 
     I created a [create_pod.yaml](./create_pod.yaml) YAML file to create Pod.
+
+  - **How to access the custom application with a specific port?**
+    
+    To access a custom application with a specific port in Kubernetes, you'll need to create a Service that exposes the application. Here are the steps I followed:
+    
+    - Create a Deployment to manage the pods running your custom application. I implemented this in [create_deployment.yaml](./create_deployment.yml) file.
+
+      Apply this YAML using ```kubectl apply -f create_deployment.yaml```
+
+    - I created a Service to expose your application and define a specific port for external access. I implemented this in [create_service.yml](./create_service.yml).
+
+      Apply this YAML using ```kubectl apply -f create_service.yaml```.
+
+    We can now access our custom application using the node's IP address and the chosen NodePort.

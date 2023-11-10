@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # React App
+  react-app:
+    container_name: react-app
+    image: node:14
+    working_dir: /usr/src/app/website
+    args:
+      GOOGLE_OAUTH_CLIENT_ID: ${GOOGLE_OAUTH_CLIENT_ID}
+      PUBLIC_KEY: ${PUBLIC_KEY}
+      API_BASE_URL: ${API_BASE_URL}
+    ports:
+      - "3000:3000"
+    command: npm start
+    environment:
+      - GOOGLE_OAUTH_CLIENT_ID=${GOOGLE_OAUTH_CLIENT_ID}
+      - PUBLIC_KEY=${PUBLIC_KEY}
+      - API_BASE_URL=${API_BASE_URL}
+
+  # Express Server
+  express-server:
+    container_name: express-server
+    image: node:14
+    working_dir: /usr/src/app/server
+    args:
+      DB_URL: ${DB_URL}
+    ports:
+      - "5000:5000"
+    command: npm start
+    environment:
+      - NODE_ENV=development
+      - DB_URL=${DB_URL}
+    depends_on:
+      - mongodb
+
+  # MongoDB (Assuming you're using MongoDB as the database)
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "27017:27017"
+
